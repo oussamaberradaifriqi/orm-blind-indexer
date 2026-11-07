@@ -4,6 +4,7 @@
 >
 > Author: **Oussama Berrada Ifriqi**
 
+[![CI](https://github.com/oussamaberradaifriqi/orm-blind-indexer/actions/workflows/ci.yml/badge.svg)](https://github.com/oussamaberradaifriqi/orm-blind-indexer/actions/workflows/ci.yml)
 [![npm version](https://badge.fury.io/js/orm-blind-indexer.svg)](https://badge.fury.io/js/orm-blind-indexer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org)
