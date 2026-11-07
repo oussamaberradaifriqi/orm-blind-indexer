@@ -36,6 +36,9 @@ jobs:
         env:
           DATABASE_URL: file:./tests/test.db
 
+      - name: Build package
+        run: npm run build
+
       - name: Run all tests
         run: npm test
         env:

@@ -10,15 +10,27 @@
  * - Nuxt / Remix / Fastify / Express
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
 import { createRequire } from 'module';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
+import { execSync } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 
 describe('Module Interoperability & Multi-Framework Support', () => {
+  beforeAll(() => {
+    const cjsPath = path.resolve(__dirname, '../dist/index.js');
+    const esmPath = path.resolve(__dirname, '../dist/index.mjs');
+    if (!fs.existsSync(cjsPath) || !fs.existsSync(esmPath)) {
+      execSync('npm run build', {
+        cwd: path.resolve(__dirname, '..'),
+        stdio: 'inherit',
+      });
+    }
+  });
   it('should be loadable via CommonJS require (NestJS, Express, Node CJS)', () => {
     const cjsPath = path.resolve(__dirname, '../dist/index.js');
     const cjsModule = require(cjsPath);
