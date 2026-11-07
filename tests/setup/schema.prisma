@@ -1,0 +1,42 @@
+// This is your Prisma schema file for integration testing.
+// It uses SQLite as the database provider for in-memory/file-based testing
+// without requiring an external database server.
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// User model demonstrating the blind index pattern.
+/// - `email` stores the AES-256-GCM encrypted email address.
+/// - `email_bidx` stores the HMAC-SHA256 blind index for exact-match queries.
+model User {
+  id         String  @id @default(cuid())
+  name       String
+  /// Stores AES-256-GCM ciphertext: "base64(iv):base64(authTag):base64(ciphertext)"
+  email      String  @unique
+  /// Stores HMAC-SHA256 blind index (base64, 44 chars) for searchable equality queries
+  email_bidx String  @unique
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("users")
+}
+
+/// Post model for testing relation queries (no encrypted fields — passthrough test)
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  authorId  String
+  createdAt DateTime @default(now())
+
+  @@map("posts")
+}
+
