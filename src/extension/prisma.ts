@@ -57,7 +57,7 @@
  * | deleteMany          | args.where        | ✅        |
  */
 
-import { Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client/extension';
 import { encrypt, decrypt, isEncryptedFormat } from '../crypto/encryptor.js';
 import { generateBlindIndex } from '../crypto/hasher.js';
 import { validateEncryptionKey, validateIndexKey } from '../crypto/utils.js';

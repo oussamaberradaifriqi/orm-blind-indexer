@@ -1,6 +1,6 @@
 {
   "name": "orm-blind-indexer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Prisma Client Extension implementing Blind Indexing for secure, searchable AES-256-GCM encrypted fields using HMAC-SHA256 blind indexes.",
   "keywords": [
     "prisma",
