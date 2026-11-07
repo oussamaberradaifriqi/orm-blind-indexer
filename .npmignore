@@ -1,0 +1,14 @@
+# Exclude everything by default, then whitelist what goes in the package
+*
+
+# Include the dist build (the actual package code)
+!dist/
+!dist/**
+
+# Include the README and license
+!README.md
+!LICENSE
+
+# Include package metadata
+!package.json
+

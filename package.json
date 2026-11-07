@@ -1,0 +1,62 @@
+{
+  "name": "orm-blind-indexer",
+  "version": "1.0.0",
+  "description": "A Prisma Client Extension implementing Blind Indexing for secure, searchable AES-256-GCM encrypted fields using HMAC-SHA256 blind indexes.",
+  "keywords": [
+    "prisma",
+    "encryption",
+    "blind-index",
+    "aes-256-gcm",
+    "hmac-sha256",
+    "database-encryption",
+    "prisma-extension",
+    "searchable-encryption"
+  ],
+  "author": "Oussama Berrada Ifriqi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@prisma/client": ">=4.9.0",
+    "prisma": ">=4.9.0"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.0.0",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "prisma": "^6.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
